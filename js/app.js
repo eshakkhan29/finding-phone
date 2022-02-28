@@ -21,13 +21,15 @@ document.getElementById('search-button').addEventListener('click', () =>{
 // display mobiles 
 const displayMobile = (mobiles) => {
     const mobilesList = document.getElementById('mobiles-list');
+    mobilesList.innerHTML = '';
     mobiles.forEach(mobile => {
         const div = document.createElement('div');
         div.innerHTML = `
-            <img onclick="showDetails('${mobile.slug}')" class="card-img-top" src="${mobile.image}">
-            <div class="card-body">
+            <img class="card-img-top" src="${mobile.image}">
+            <div class="card-body text-center">
                 <h3 class="card-title text-center">${mobile.phone_name}</h3>
                 <h4 class="card-title text-center">${mobile.brand}</h4>
+                <button onclick="showDetails('${mobile.slug}')" class="btn btn-success">Show Details</button>
             </div>
         `;
         div.classList.add('col', 'card','border-0', 'mt-5','p-4')
@@ -45,13 +47,14 @@ const showDetails = (mobile) => {
 // display ditails
 const displayDitails = (mobile) => {
     const mobileDitails = document.getElementById('mobile-ditails');
+    mobileDitails.innerHTML = '';
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="card border-0"> 
         <img src="${mobile.image}" class="card-img-top"> 
         <div class="card-body">
             <h5 class="card-title">${mobile.name}</h5>
-            <h6 class="card-title">Brand : ${mobile.mainFeatures.brand}</h6>
+            <h6 class="card-title">Brand : ${mobile.brand}</h6>
             <h6 class="card-title">Storage : ${mobile.mainFeatures.storage}</h6>
             <h6 class="card-title">DisplaySize : ${mobile.mainFeatures.displaySize}</h6>
             <h6 class="card-title">ReleaseDate : ${mobile.releaseDate}</h6>
