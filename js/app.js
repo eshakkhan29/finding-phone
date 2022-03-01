@@ -8,15 +8,21 @@
 // Example: https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089
 
 document.getElementById('search-button').addEventListener('click', () =>{
+    document.getElementById('spinner').classList.remove('d-none')
     const searchInput = document.getElementById('search-input');
     const inputValue = searchInput.value.toLowerCase();
-    // data calling 
-    const url =(`https://openapi.programming-hero.com/api/phones?search=${inputValue}`);
+    if (inputValue === '') {
+        document.getElementById('error-mesege').classList.remove('d-none');
+    }
+    else{
+        // data calling 
+        const url =(`https://openapi.programming-hero.com/api/phones?search=${inputValue}`);
         fetch(url)
         .then(res => res.json())
         .then(data => displayMobile(data.data))
-    // clear input data 
-    searchInput.value = '';
+        // clear input data 
+        searchInput.value = '';
+    }
 });
 
 // display mobiles 
@@ -39,6 +45,8 @@ const displayMobile = (mobiles) => {
         div.classList.add('col', 'card','border-0', 'mt-5','p-4')
         mobilesList.appendChild(div)
         document.getElementById('error-mesege').classList.add('d-none');
+        document.getElementById('spinner').classList.add('d-none')
+
     });
 };
 
