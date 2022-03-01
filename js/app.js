@@ -61,7 +61,7 @@ const displayDitails = (mobile) => {
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="card border-0"> 
-        <img class="p-4" src="${mobile.image}" class="card-img-top"> 
+        <img class="p-lg-5 p-4" src="${mobile.image}" class="card-img-top"> 
         <div class="card-body">
             <h5 class="card-title">${mobile.name}</h5>
             <h6 class="card-title"><span class="fw-bold">ReleaseDate :</span> ${mobile.releaseDate ? mobile.releaseDate: 'ReleaseDate no Found'}</h6>
