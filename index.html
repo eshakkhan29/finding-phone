@@ -15,13 +15,13 @@
         <section class="m-5">
             <div class="container">
                 <!-- company name  -->
-                <h1 class="text-center mb-3 text-secondary">Mobile Bazar</h1>
+                <h1 class="text-center mb-3 text-secondary">Mobile Finder</h1>
                 <div class="m-auto">
                     <div class="input-group mb-3">
                         <!-- Search input  -->
                         <input id="search-input" type="text" class="form-control" placeholder="Search mobile" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <!-- Search button  -->
-                        <button class="btn btn-outline-success m-auto" type="button" id="search-button">Search</button>
+                        <button class="btn btn-success m-auto" type="button" id="search-button">Search</button>
                       </div>
                       <!-- error mesege -->
                       <p id="error-mesege" class="text-danger fw-bold text-center d-none">No Search Results Found</p>
@@ -38,9 +38,13 @@
                         
                 </div>
                 </div>
-                <!-- display mobiles  -->
+                <!-- display all mobiles  -->
                 <div id="mobiles-list" class="row row-cols-lg-3 row-cols-1 g-4">
                     
+                </div>
+                <!-- show more button -->
+                <div id="show-more-button" class="p-4 m-auto d-none" style="width: 200px;">
+                    <button class="btn btn-success">Show More</button>
                 </div>
             </div>
         </section>
