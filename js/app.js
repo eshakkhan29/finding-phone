@@ -79,12 +79,12 @@ const displayDitails = (mobile) => {
             <li class="list-group-item">${mobile.mainFeatures.sensors[4] ? mobile.mainFeatures.sensors[4]: 'none'}</li>
             <li class="list-group-item">${mobile.mainFeatures.sensors[5] ? mobile.mainFeatures.sensors[5]: 'none'}</li>
             <li class="list-group-item fw-bold">Others</li>
-            <li class="list-group-item">WLAN : ${mobile.others?.WLAN ? mobile.others.WLAN: ''}</li>
-            <li class="list-group-item">Bluetooth : ${mobile.others?.Bluetooth ? mobile.others.Bluetooth: ''}</li>
-            <li class="list-group-item">GPS : ${mobile.others?.GPS ? mobile.others.GPS: ''}</li>
-            <li class="list-group-item">NFC : ${mobile.others?.NFC ? mobile.others.NFC: ''}</li>
-            <li class="list-group-item">Radio : ${mobile.others?.Radio ? mobile.others.Radio: ''}</li>
-            <li class="list-group-item">USB : ${mobile.others?.USB ? mobile.others.USB: ''}</li>
+            <li class="list-group-item">WLAN : ${mobile.others?.WLAN ? mobile.others.WLAN: 'none'}</li>
+            <li class="list-group-item">Bluetooth : ${mobile.others?.Bluetooth ? mobile.others.Bluetooth: 'none'}</li>
+            <li class="list-group-item">GPS : ${mobile.others?.GPS ? mobile.others.GPS: 'none'}</li>
+            <li class="list-group-item">NFC : ${mobile.others?.NFC ? mobile.others.NFC: 'none'}</li>
+            <li class="list-group-item">Radio : ${mobile.others?.Radio ? mobile.others.Radio: 'none'}</li>
+            <li class="list-group-item">USB : ${mobile.others?.USB ? mobile.others.USB: 'none'}</li>
         </ul>
     </div>
     `;
