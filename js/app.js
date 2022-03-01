@@ -37,7 +37,7 @@ const displayMobile = (mobiles) => {
             <div class="card-body text-center">
                 <h3 class="card-title text-center">${mobile.phone_name}</h3>
                 <h4 class="card-title text-center">${mobile.brand}</h4>
-                <button onclick="showDetails('${mobile.slug}')" class="btn btn-outline-success p-2">Show Details</button>
+                <a href="#" onclick="showDetails('${mobile.slug}')" class="btn btn-outline-success p-2">Show Details</a>
             </div>
         `;
         div.classList.add('col', 'card','border-0', 'mt-5','p-5')
