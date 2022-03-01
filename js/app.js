@@ -6,6 +6,7 @@ document.getElementById('search-button').addEventListener('click', () =>{
     const inputValue = searchInput.value.toLowerCase();
     if (inputValue === '') {
         document.getElementById('error-mesege').classList.remove('d-none');
+        document.getElementById('spinner').classList.add('d-none')
     }
     else{
         // data calling 
@@ -22,6 +23,7 @@ document.getElementById('search-button').addEventListener('click', () =>{
 const displayMobile = (mobiles) => {
     if (mobiles !== 'object') {
         document.getElementById('error-mesege').classList.remove('d-none');
+        document.getElementById('spinner').classList.add('d-none')
     }
     const mobilesList = document.getElementById('mobiles-list');
     const mobileDitails = document.getElementById('mobile-ditails');
@@ -68,9 +70,9 @@ const displayDitails = (mobile) => {
         <ul class="list-group list-group-flush">
             <li class="list-group-item fw-bold">MainFeatures</li>
             <li class="list-group-item">Storage : ${mobile.mainFeatures.storage}</li>
-            <li class="list-group-item">DisplaySize : ${mobile.mainFeatures.displaySize}</li>
-            <li class="list-group-item">ChipSet : ${mobile.mainFeatures.chipSet}</li>
-            <li class="list-group-item">Memory : ${mobile.mainFeatures.memory}</li>
+            <li class="list-group-item">DisplaySize : ${mobile.mainFeatures.displaySize ? mobile.mainFeatures.displaySize: 'none'}</li>
+            <li class="list-group-item">ChipSet : ${mobile.mainFeatures.chipSet ? mobile.mainFeatures.chipSet: 'none'}</li>
+            <li class="list-group-item">Memory : ${mobile.mainFeatures.memory ? mobile.mainFeatures.memory: 'none'}</li>
             <li class="list-group-item fw-bold">Sensors</li>
             <li class="list-group-item">${mobile.mainFeatures.sensors[0] ? mobile.mainFeatures.sensors[0]: 'none'}</li>
             <li class="list-group-item">${mobile.mainFeatures.sensors[1] ? mobile.mainFeatures.sensors[1]: 'none'}</li>
