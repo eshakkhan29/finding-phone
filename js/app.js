@@ -24,6 +24,8 @@ const displayMobile = (mobiles) => {
         document.getElementById('error-mesege').classList.remove('d-none');
     }
     const mobilesList = document.getElementById('mobiles-list');
+    const mobileDitails = document.getElementById('mobile-ditails');
+    mobileDitails.innerHTML = '';
     mobilesList.innerHTML = '';
     const mobile = mobiles.slice(0, 20);
     mobile.forEach(mobile => {
@@ -57,12 +59,11 @@ const displayDitails = (mobile) => {
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="card border-0"> 
-        <img src="${mobile.image}" class="card-img-top"> 
+        <img class="p-4" src="${mobile.image}" class="card-img-top"> 
         <div class="card-body">
             <h5 class="card-title">${mobile.name}</h5>
             <h6 class="card-title"><span class="fw-bold">ReleaseDate :</span> ${mobile.releaseDate ? mobile.releaseDate: 'ReleaseDate no Found'}</h6>
             <h6 class="card-title"><span class="fw-bold">Brand :</span> ${mobile.brand}</h6>
-            
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item fw-bold">MainFeatures</li>
@@ -71,12 +72,12 @@ const displayDitails = (mobile) => {
             <li class="list-group-item">ChipSet : ${mobile.mainFeatures.chipSet}</li>
             <li class="list-group-item">Memory : ${mobile.mainFeatures.memory}</li>
             <li class="list-group-item fw-bold">Sensors</li>
-            <li class="list-group-item">${mobile.mainFeatures.sensors[0]}</li>
-            <li class="list-group-item">${mobile.mainFeatures.sensors[1]}</li>
-            <li class="list-group-item">${mobile.mainFeatures.sensors[2]}</li>
-            <li class="list-group-item">${mobile.mainFeatures.sensors[3]}</li>
-            <li class="list-group-item">${mobile.mainFeatures.sensors[4]}</li>
-            <li class="list-group-item">${mobile.mainFeatures.sensors[5]}</li>
+            <li class="list-group-item">${mobile.mainFeatures.sensors[0] ? mobile.mainFeatures.sensors[0]: 'none'}</li>
+            <li class="list-group-item">${mobile.mainFeatures.sensors[1] ? mobile.mainFeatures.sensors[1]: 'none'}</li>
+            <li class="list-group-item">${mobile.mainFeatures.sensors[2] ? mobile.mainFeatures.sensors[2]: 'none'}</li>
+            <li class="list-group-item">${mobile.mainFeatures.sensors[3] ? mobile.mainFeatures.sensors[3]: 'none'}</li>
+            <li class="list-group-item">${mobile.mainFeatures.sensors[4] ? mobile.mainFeatures.sensors[4]: 'none'}</li>
+            <li class="list-group-item">${mobile.mainFeatures.sensors[5] ? mobile.mainFeatures.sensors[5]: 'none'}</li>
             <li class="list-group-item fw-bold">Others</li>
             <li class="list-group-item">WLAN : ${mobile.others?.WLAN ? mobile.others.WLAN: ''}</li>
             <li class="list-group-item">Bluetooth : ${mobile.others?.Bluetooth ? mobile.others.Bluetooth: ''}</li>
