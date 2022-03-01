@@ -11,15 +11,19 @@ document.getElementById('search-button').addEventListener('click', () =>{
     const searchInput = document.getElementById('search-input');
     const inputValue = searchInput.value.toLowerCase();
     // data calling 
-    fetch(`https://openapi.programming-hero.com/api/phones?search=${inputValue}`)
-    .then(res => res.json())
-    .then(data => displayMobile(data.data))
+    const url =(`https://openapi.programming-hero.com/api/phones?search=${inputValue}`);
+        fetch(url)
+        .then(res => res.json())
+        .then(data => displayMobile(data.data))
     // clear input data 
     searchInput.value = '';
 });
 
 // display mobiles 
 const displayMobile = (mobiles) => {
+    if (mobiles !== 'object') {
+        document.getElementById('error-mesege').classList.remove('d-none');
+    }
     const mobilesList = document.getElementById('mobiles-list');
     mobilesList.innerHTML = '';
     mobiles.forEach(mobile => {
@@ -34,6 +38,7 @@ const displayMobile = (mobiles) => {
         `;
         div.classList.add('col', 'card','border-0', 'mt-5','p-4')
         mobilesList.appendChild(div)
+        document.getElementById('error-mesege').classList.add('d-none');
     });
 };
 
@@ -46,6 +51,13 @@ const showDetails = (mobile) => {
 
 // display ditails
 const displayDitails = (mobile) => {
+    // const releaseDate = 
+    if (mobile.releaseDate === '') {
+        releaseDate = 'ReleaseDate no Found';
+    }
+    else{
+        releaseDate = mobile.releaseDate;
+    }
     const mobileDitails = document.getElementById('mobile-ditails');
     mobileDitails.innerHTML = '';
     const div = document.createElement('div');
@@ -54,12 +66,16 @@ const displayDitails = (mobile) => {
         <img src="${mobile.image}" class="card-img-top"> 
         <div class="card-body">
             <h5 class="card-title">${mobile.name}</h5>
-            <h6 class="card-title">Brand : ${mobile.brand}</h6>
-            <h6 class="card-title">Storage : ${mobile.mainFeatures.storage}</h6>
-            <h6 class="card-title">DisplaySize : ${mobile.mainFeatures.displaySize}</h6>
-            <h6 class="card-title">ReleaseDate : ${mobile.releaseDate}</h6>
+            <h6 class="card-title"><span class="fw-bold">ReleaseDate :</span> ${releaseDate}</h6>
+            <h6 class="card-title"><span class="fw-bold">Brand :</span> ${mobile.brand}</h6>
+            
         </div>
         <ul class="list-group list-group-flush">
+            <li class="list-group-item fw-bold">MainFeatures</li>
+            <li class="list-group-item">Storage : ${mobile.mainFeatures.storage}</li>
+            <li class="list-group-item">DisplaySize : ${mobile.mainFeatures.displaySize}</li>
+            <li class="list-group-item">ChipSet : ${mobile.mainFeatures.chipSet}</li>
+            <li class="list-group-item">Memory : ${mobile.mainFeatures.memory}</li>
             <li class="list-group-item fw-bold">Sensors</li>
             <li class="list-group-item">${mobile.mainFeatures.sensors[0]}</li>
             <li class="list-group-item">${mobile.mainFeatures.sensors[1]}</li>
